@@ -8,24 +8,37 @@ class Queue {
     initQueue = function(Array) {
 
         Array.forEach(element => {
-
+            this.queue.unshift(element);
         });
+
+        return this.queue;
     }
 
     isEmpty = function() {
-
+        if (this.queue.length == 0) return true;
+        return false
     }
 
     getLength = function() {
-
+        return this.queue.length;
     }
 
-    insert = function() {
-
+    insert = function(element) {
+        this.queue.unshift(element);
     }
 
     del = function() {
-
+        return this.queue.pop();
     }
 
+    empty = function() {
+        let arr = [];
+        while (this.queue.length !== 0) {
+            arr.push(this.queue.pop());
+        }
+        return arr;
+    }
 }
+
+
+module.exports = Queue
